@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace smartcitysupply.Models.AccountViewModels
 {
-    public class RegisterViewModel
+    public class RegisterCitizenViewModel
     {
         [Required]
         [EmailAddress]

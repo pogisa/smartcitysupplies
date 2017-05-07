@@ -103,11 +103,21 @@ namespace smartcitysupply.Controllers
         }
 
         //
-        // POST: /Account/Register
+        // GET: /Account/RegisterCitizen
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult RegisterCitizen(string returnUrl = null)
+        {
+            //ViewData["ReturnUrl"] = returnUrl;
+            return View();
+        }
+
+        //
+        // POST: /Account/RegisterCitizen
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
+        public async Task<IActionResult> RegisterCitizen(RegisterCitizenViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
@@ -122,6 +132,59 @@ namespace smartcitysupply.Controllers
                     //var callbackUrl = Url.Action(nameof(ConfirmEmail), "Account", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
                     //await _emailSender.SendEmailAsync(model.Email, "Confirm your account",
                     //    $"Please confirm your account by clicking this link: <a href='{callbackUrl}'>link</a>");
+                    await _userManager.AddClaimAsync(user, new Claim("app_usertype", "citizen"));
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    _logger.LogInformation(3, "User created a new account with password.");
+                    return RedirectToLocal(returnUrl);
+                }
+                AddErrors(result);
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
+        //
+        // GET: /Account/RegisterCharity
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult RegisterCharity(string returnUrl = null)
+        {
+            //ViewData["ReturnUrl"] = returnUrl;
+            return View();
+        }
+
+        //
+        // POST: /Account/RegisterCharity
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RegisterCharity(RegisterCharityViewModel model, string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=532713
+                    // Send an email with this link
+                    //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    //var callbackUrl = Url.Action(nameof(ConfirmEmail), "Account", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
+                    //await _emailSender.SendEmailAsync(model.Email, "Confirm your account",
+                    //    $"Please confirm your account by clicking this link: <a href='{callbackUrl}'>link</a>");
+                    await _userManager.AddClaimAsync(user, new Claim("app_usertype", "charity"));
+                    await _userManager.AddClaimAsync(user, new Claim("app_address1", model.AddressLine1));
+                    await _userManager.AddClaimAsync(user, new Claim("app_address2", model.AddressLine2 ?? string.Empty));
+                    await _userManager.AddClaimAsync(user, new Claim("app_city", model.City));
+                    await _userManager.AddClaimAsync(user, new Claim("app_state", model.State));
+                    await _userManager.AddClaimAsync(user, new Claim("app_zip", model.Zip));
+                    await _userManager.AddClaimAsync(user, new Claim("app_phone", model.Phone));
+                    await _userManager.AddClaimAsync(user, new Claim("app_contactName", model.ContactName));
+                    await _userManager.AddClaimAsync(user, new Claim("app_charityName", model.CharityName));
+                    await _userManager.AddClaimAsync(user, new Claim("app_ein", model.Ein));
+
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation(3, "User created a new account with password.");
                     return RedirectToLocal(returnUrl);
