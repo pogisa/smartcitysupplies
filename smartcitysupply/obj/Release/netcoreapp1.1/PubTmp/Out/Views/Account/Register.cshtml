@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+
+<h2>@ViewData["Title"].</h2>
+
+<form asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
+    <h4><a asp-area="" asp-controller="Account" asp-action="RegisterCitizen">I want to help</a>
+    <br />
+    <a asp-area="" asp-controller="Account" asp-action="RegisterCharity">I am a charity</a></h4>
+</form>
+

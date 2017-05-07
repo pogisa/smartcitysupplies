@@ -1,0 +1,10 @@
+D:\Users\Peter\Source\Repos\smartcitysupply\smartcitysupply\bin\Release\netcoreapp1.1\smartcitysupply.deps.json
+D:\Users\Peter\Source\Repos\smartcitysupply\smartcitysupply\bin\Release\netcoreapp1.1\smartcitysupply.runtimeconfig.json
+D:\Users\Peter\Source\Repos\smartcitysupply\smartcitysupply\bin\Release\netcoreapp1.1\smartcitysupply.runtimeconfig.dev.json
+D:\Users\Peter\Source\Repos\smartcitysupply\smartcitysupply\bin\Release\netcoreapp1.1\smartcitysupply.dll
+D:\Users\Peter\Source\Repos\smartcitysupply\smartcitysupply\bin\Release\netcoreapp1.1\smartcitysupply.pdb
+D:\Users\Peter\Source\Repos\smartcitysupply\smartcitysupply\obj\Release\netcoreapp1.1\smartcitysupply.csprojResolveAssemblyReference.cache
+D:\Users\Peter\Source\Repos\smartcitysupply\smartcitysupply\obj\Release\netcoreapp1.1\UserSecretsAssemblyInfo.cs
+D:\Users\Peter\Source\Repos\smartcitysupply\smartcitysupply\obj\Release\netcoreapp1.1\smartcitysupply.AssemblyInfo.cs
+D:\Users\Peter\Source\Repos\smartcitysupply\smartcitysupply\obj\Release\netcoreapp1.1\smartcitysupply.dll
+D:\Users\Peter\Source\Repos\smartcitysupply\smartcitysupply\obj\Release\netcoreapp1.1\smartcitysupply.pdb

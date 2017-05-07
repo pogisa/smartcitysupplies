@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuEOw5beJWEqlIIFa6jKfgwAAAAACAAAAAAAQZgAAAAEAACAAAAAq7hJWiqb8WbRZDcpjFusmwvCdV6rXnwNk8B09h5x+hgAAAAAOgAAAAAIAACAAAAAUPjuuRdzslePykAbI+vCl/ZmleqBkt9Mmhelr/8VXW4AAAAAptq+fm3fQhhGX/6v8tPLzpX3Jbuwbwl5ekYjSL6+n8InPOiun+FV4AOtC9HgctYfrpM1CnMpZH1tgFMu9RFHDVV0QMlSD/MTGMlUOcr2MAMr1aNlMuZHoP81GNRBUqYTzaFJlcWrlwAClTqksR2a20ZqVEa97DZlz4RwMvEECZEAAAABSiyCqnqBRCwSdTqDKRIAaJXgRr2pO/Vaf/lhO3ge+uPuMWXzi6AUD3Y4dSo3ECJzPxhB3ixBBb23VCbOTOfGA</EncryptedPassword>
+    <_NewBackgroundProfile>True</_NewBackgroundProfile>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=tcp:smartcitysupply20170507051533dbserver.database.windows.net,1433;Initial Catalog=smartcitysupply20170507051533_db;User Id=vasyspe@smartcitysupply20170507051533dbserver;Password=X5DBRvidsgRMFsHzuHCa</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="smartcitysupply.Data.ApplicationDbContext">
+      <Value>Data Source=tcp:smartcitysupply20170507051533dbserver.database.windows.net,1433;Initial Catalog=smartcitysupply20170507051533_db;User Id=vasyspe@smartcitysupply20170507051533dbserver;Password=X5DBRvidsgRMFsHzuHCa</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

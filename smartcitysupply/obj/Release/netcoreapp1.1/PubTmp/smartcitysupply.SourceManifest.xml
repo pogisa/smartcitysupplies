@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="D:\Users\Peter\Source\Repos\smartcitysupply\smartcitysupply\obj\Release\netcoreapp1.1\PubTmp\Out\" />
+  <dbfullsql path="D:\Users\Peter\Source\Repos\smartcitysupply\smartcitysupply\obj\Release\netcoreapp1.1\PubTmp\EFSQLScripts\smartcitysupply.Data.ApplicationDbContext.sql" />
+</sitemanifest>
