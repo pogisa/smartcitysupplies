@@ -28,6 +28,10 @@ namespace smartcitysupply.Controllers
             {
                 return View("CharityIndex", new CharityViewModel());
             }
+            //if (User.HasClaim(x => x.Type == "app_usertype" && (x.Value == "citizen")))
+            //{
+            //    return View("CitizenIndex", new CharityViewModel());
+            //}
             return View();
         }
 

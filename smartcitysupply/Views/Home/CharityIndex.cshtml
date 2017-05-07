@@ -1,7 +1,105 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@section Scripts{
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+@*<link rel="stylesheet" href="/resources/demos/style.css">*@
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        function createSlider(divName) {
+            $(divName).slider({
+                range: "max",
+                min: 1,
+                max: 5,
+                value: 3,
+                slide: function (event, ui) {
+                    $("#amount").val(ui.value);
+                }
+            });
+            $("#amount").val($(divName).slider("value"));
+        };
+    </script>
+
+    <script>
+        createSlider("#sliderNonperishable");
+        createSlider("#sliderBaked");
+        createSlider("#sliderProduce");
+        createSlider("#sliderMeat");
+        createSlider("#sliderFrozen");
+        createSlider("#sliderBaby");
+        createSlider("#sliderClothing");
+        createSlider("#sliderPet");
+        createSlider("#sliderSchool");
+    </script>
+}
 
 <div>
-    Charity Information here.
+    <h2>
+        Welcome to your Charity’s Dashboard.  Use the slider scales to set the current demands of your organization in the areas listed below.
+
+    </h2>
+    <br/>
+    <br/>
+    <p>
+        <label for="amount">Nonperishable goods:</label>
+        @*<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">*@
+    </p>
+    <div style="background-color:red" id="sliderNonperishable"></div>
+    <br/>
+
+    <p>
+            <label for="amount">Baked goods:</label>
+            @*<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">*@
+        </p>
+        <div style="background-color:red" id="sliderBaked"></div>
+    <br />
+
+    <p>
+        <label for="amount">Produce:</label>
+        @*<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">*@
+    </p>
+    <div style="background-color:red" id="sliderProduce"></div>
+    <br />
+    <p>
+        <label for="amount">Meat / Seafood:</label>
+        @*<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">*@
+    </p>
+    <div style="background-color:red" id="sliderMeat"></div>
+    <br />
+    <p>
+        <label for="amount">Frozen foods:</label>
+        @*<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">*@
+    </p>
+    <div style="background-color:red" id="sliderFrozen"></div>
+    <br />
+    <p>
+        <label for="amount">Baby food:</label>
+        @*<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">*@
+    </p>
+    <div style="background-color:red" id="sliderBaby"></div>
+    <br />
+    <p>
+        <label for="amount">Clothing:</label>
+        @*<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">*@
+    </p>
+    <div style="background-color:red" id="sliderClothing"></div>
+    <br />
+    <p>
+        <label for="amount">Pet food:</label>
+        @*<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">*@
+    </p>
+    <div style="background-color:red" id="sliderPet"></div>
+    <br />
+    <p>
+        <label for="amount">School Suplies:</label>
+        @*<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">*@
+    </p>
+    <div style="background-color:red" id="sliderSchool"></div>
+    <br />
 </div>
