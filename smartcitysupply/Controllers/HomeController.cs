@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using smartcitysupply.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
+using smartcitysupply.Models.HomeViewModels;
 
 namespace smartcitysupply.Controllers
 {
@@ -18,6 +21,18 @@ namespace smartcitysupply.Controllers
 
         }
         public IActionResult Index()
+        {
+            // messy - should be better ways to do this
+            //ClaimsPrincipal currentUser = this.User;
+            if(User.HasClaim(x => x.Type == "app_usertype" && (x.Value == "charity" || x.Value == "charityAdmin")))
+            {
+                return View("CharityIndex", new CharityViewModel());
+            }
+            return View();
+        }
+
+        [Authorize(Policy = "Charity")]
+        public IActionResult CharityIndex()
         {
             return View();
         }

@@ -133,8 +133,10 @@ namespace smartcitysupply.Controllers
                     //await _emailSender.SendEmailAsync(model.Email, "Confirm your account",
                     //    $"Please confirm your account by clicking this link: <a href='{callbackUrl}'>link</a>");
                     await _userManager.AddClaimAsync(user, new Claim("app_usertype", "citizen"));
+                    await _userManager.AddClaimAsync(user, new Claim("app_isCitizen", "true"));
+
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    _logger.LogInformation(3, "User created a new account with password.");
+                    _logger.LogInformation(3, "User created a new citizen account with password.");
                     return RedirectToLocal(returnUrl);
                 }
                 AddErrors(result);
@@ -174,7 +176,7 @@ namespace smartcitysupply.Controllers
                     //var callbackUrl = Url.Action(nameof(ConfirmEmail), "Account", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
                     //await _emailSender.SendEmailAsync(model.Email, "Confirm your account",
                     //    $"Please confirm your account by clicking this link: <a href='{callbackUrl}'>link</a>");
-                    await _userManager.AddClaimAsync(user, new Claim("app_usertype", "charity"));
+                    await _userManager.AddClaimAsync(user, new Claim("app_usertype", "charityAdmin"));
                     await _userManager.AddClaimAsync(user, new Claim("app_address1", model.AddressLine1));
                     await _userManager.AddClaimAsync(user, new Claim("app_address2", model.AddressLine2 ?? string.Empty));
                     await _userManager.AddClaimAsync(user, new Claim("app_city", model.City));
@@ -186,7 +188,7 @@ namespace smartcitysupply.Controllers
                     await _userManager.AddClaimAsync(user, new Claim("app_ein", model.Ein));
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    _logger.LogInformation(3, "User created a new account with password.");
+                    _logger.LogInformation(3, "User created a new charity admin account with password.");
                     return RedirectToLocal(returnUrl);
                 }
                 AddErrors(result);
